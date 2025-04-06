@@ -1,0 +1,264 @@
+input,
+textarea {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.taskCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.377);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out;
+
+  width: 350px;
+  height: 438px;
+
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  resize: none;
+  box-sizing: border-box;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.starButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  svg {
+    font-size: 1.5rem;
+  }
+}
+
+.body {
+  flex-grow: 1;
+  text-align: center;
+  color: #000000;
+  padding: 1rem;
+  overflow-y: auto;
+
+  p {
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    flex-wrap: wrap;
+  }
+
+  .editInput,
+  .editTextarea {
+    width: 90%;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    margin: 0 auto;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+
+  .editTextarea {
+    width: 100%;
+    height: 80%;
+    max-height: 200px;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    margin: 0 auto;
+    display: block;
+    transition: background-color 0.3s ease;
+
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    resize: none;
+    box-sizing: border-box;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0.5rem 0;
+  gap: 10px;
+
+  .leftActions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .editIcon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #333;
+
+    &:hover {
+      color: #007bff;
+    }
+  }
+
+  
+  > div:last-child {
+    display: flex;
+    gap: 10px; 
+    align-items: center;
+  }
+
+  .finalizedButton,
+  .canceledButton,
+  .deleteButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+
+  .finalizedButton {
+    color: rgb(34, 179, 34); 
+
+    &:hover {
+      color: rgb(22, 116, 22); 
+    }
+  }
+
+  .canceledButton {
+    font-size: 1.5rem; 
+    color: rgb(179, 134, 34); 
+
+    &:hover {
+      color: rgb(116, 85, 22); 
+    }
+  }
+  
+  .reopenButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: rgb(0, 123, 255); 
+    transition: color 0.3s ease;
+  
+    &:hover {
+      color: rgb(0, 86, 179); 
+    }
+  }
+
+  .deleteButton {
+    color: rgb(179, 34, 34); 
+
+    &:hover {
+      color: rgb(116, 22, 22); 
+    }
+  }
+  .disabled {
+    opacity: 0.5; 
+    pointer-events: none; 
+    cursor: not-allowed; 
+  }
+  .saveButton {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+
+}
+
+.colorPicker {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-width: 360px;
+
+  .closeButton {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .colors {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    padding: 5px;
+
+    .color {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .taskCard {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    
+  }
+  .taskCard:hover {
+    transform: none;
+  }
+  .colors {
+    max-width: 200px;
+  }
+
+}
